@@ -1,0 +1,23 @@
+{
+  "name": "boilerplate-next",
+  "private": true,
+  "scripts": {
+    "build": "mkdir -p dist && run-s build:bundle build:minify",
+    "build:bundle": "rollup --config",
+    "build:minify": "node bin/minify.js",
+    "watch": "npm run build && run-p watch:*",
+    "watch:bundle": "npm run build:bundle -- --watch",
+    "watch:minify": "watch 'npm run build:minify' src",
+    "serve": "serve .",
+    "dev": "run-p watch serve"
+  },
+  "devDependencies": {
+    "globby": "^7.1.1",
+    "minimist": "^1.2.0",
+    "npm-run-all": "^4.1.2",
+    "rollup": "^0.52.0",
+    "serve": "^6.4.1",
+    "uglify-es": "^3.2.0",
+    "watch": "^1.0.2"
+  }
+}
